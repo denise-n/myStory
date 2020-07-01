@@ -29,7 +29,7 @@ if(process.env.NODE_ENV === 'development') {
 }
 
 // Handlebars Helpers
-const { formatDate, stripTags, truncate } = require('./helpers/hbs')
+const { formatDate, stripTags, truncate, editIcon } = require('./helpers/hbs')
 
 // handlebars
 app.engine(
@@ -38,7 +38,8 @@ app.engine(
         helpers: {
             formatDate,
             stripTags,
-            truncate
+            truncate,
+            editIcon
         },
         extname: '.hbs',
         defaultLayout: 'main.hbs',
@@ -61,6 +62,12 @@ app.use(passport.initialize())
 app.use(passport.session())
 // Static Folder
 app.use(express.static(path.join(__dirname, 'public')))
+
+// Global Variables
+app.use(function (req, res, next) {
+    res.locals.user = req.user || null
+    next()
+})
 
 // Routes
 app.use('/', require('./routes/index'))
