@@ -1,5 +1,6 @@
-body :
-font-family: 'Roboto', sans-serif;
+body {
+    font-family: 'Roboto', sans-serif;
+}
 
 p {
     margin: 10px 0 !important;
@@ -18,4 +19,8 @@ p {
 .btn-float {
     float: left;
     margin-right: 10px;
+}
+
+.img-small {
+    width: 180px;
 }

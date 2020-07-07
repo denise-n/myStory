@@ -28,7 +28,9 @@ module.exports = {
                             <i class="fas fa-edit fa-small"></i>
                         </a>`
             } else {
-                return `<a href="/stories/edit/${storyId}"><i class="fas fa-edit></i></a>`
+                return `<a href="/stories/edit/${storyId}">
+                            <i class="fas fa-edit"></i>
+                        </a>`
             }
         } else {
             return ''
